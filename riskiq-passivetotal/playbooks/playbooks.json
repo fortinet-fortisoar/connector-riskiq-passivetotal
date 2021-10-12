@@ -1,0 +1,999 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - RiskIQ PassiveTotal - 1.0.0",
+      "description": null,
+      "visible": true,
+      "image": null,
+      "uuid": "aafacbf2-618c-4de8-a55e-a14b399dea3c",
+      "id": 425,
+      "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+      "createDate": 1633008573,
+      "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+      "modifyDate": 1633008573,
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Passive DNS",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the passive DNS results from active account sources.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1633067615,
+          "collection": "/api/3/workflow_collections/aafacbf2-618c-4de8-a55e-a14b399dea3c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/7a9764ae-16b3-4e6c-86ed-bb61e2db6afc",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Passive DNS",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ PassiveTotal",
+                "config": "0c3966f1-4a93-4d71-8133-b440df429641",
+                "params": {
+                  "end": "",
+                  "query": "passivetotal.org",
+                  "start": "",
+                  "timeout": 7
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-passivetotal",
+                "operation": "get_passive_dns",
+                "operationTitle": "Get Passive DNS",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "130",
+              "left": "369",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "48d22c4a-3a44-4eba-8eab-c6575807c241",
+              "id": 12361
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "959420d7-4c1e-450d-b996-48e7a35814b8",
+                "title": "RiskIQ PassiveTotal: Get Passive DNS",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "7a9764ae-16b3-4e6c-86ed-bb61e2db6afc",
+              "id": 12360
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Passive DNS",
+              "targetStep": "/api/3/workflow_steps/48d22c4a-3a44-4eba-8eab-c6575807c241",
+              "sourceStep": "/api/3/workflow_steps/7a9764ae-16b3-4e6c-86ed-bb61e2db6afc",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "60fce342-7653-4025-b5d0-2e5dc7391e9c"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "29769d27-a19a-44cf-ade4-1f0924c03d90",
+          "recordTags": [
+            "RiskIQ",
+            "riskiq-passivetotal"
+          ],
+          "id": 4188,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1633008636,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1633083318,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Reputation",
+          "aliasName": null,
+          "tag": null,
+          "description": "Get reputation from a given domain, host or IP.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1633082905,
+          "collection": "/api/3/workflow_collections/aafacbf2-618c-4de8-a55e-a14b399dea3c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/102e2e82-ff87-49ed-afc2-00583c903cab",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "47132457-0b82-498c-a559-58fcc08f8190",
+                "title": "RiskIQ PassiveTotal: Get Reputation",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "102e2e82-ff87-49ed-afc2-00583c903cab",
+              "id": 12378
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Reputation",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ PassiveTotal",
+                "config": "0c3966f1-4a93-4d71-8133-b440df429641",
+                "params": {
+                  "query": "passivetotal.org"
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-passivetotal",
+                "operation": "get_reputation",
+                "operationTitle": "Get Reputation",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "283",
+              "left": "406",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "9ff6c965-5b23-457c-9288-225016369327",
+              "id": 12379
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Reputation",
+              "targetStep": "/api/3/workflow_steps/9ff6c965-5b23-457c-9288-225016369327",
+              "sourceStep": "/api/3/workflow_steps/102e2e82-ff87-49ed-afc2-00583c903cab",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "976c6173-2883-4a2e-8424-a27fc671a1b2"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "338a085c-9feb-4127-8f44-5c49affc76b5",
+          "recordTags": [
+            "RiskIQ",
+            "riskiq-passivetotal"
+          ],
+          "id": 4197,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1633082801,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1633083318,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Whois Data",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the WHOIS data for the specified query",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1633080496,
+          "collection": "/api/3/workflow_collections/aafacbf2-618c-4de8-a55e-a14b399dea3c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/70d2e8f4-a584-4463-bea9-7c68cb3fc7ed",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "e8a51171-2292-4a8d-a6c5-800fd33463e8",
+                "title": "RiskIQ PassiveTotal: Get Whois Data",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "70d2e8f4-a584-4463-bea9-7c68cb3fc7ed",
+              "id": 12364
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Whois Data",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ PassiveTotal",
+                "config": "0c3966f1-4a93-4d71-8133-b440df429641",
+                "params": {
+                  "query": "passivetotal.org",
+                  "history": true,
+                  "compact_record": true
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-passivetotal",
+                "operation": "get_whois_data",
+                "operationTitle": "Get Whois Data",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "131",
+              "left": "328",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "eb6358aa-aeba-42ce-aa98-dc11457d727c",
+              "id": 12365
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Whois Data",
+              "targetStep": "/api/3/workflow_steps/eb6358aa-aeba-42ce-aa98-dc11457d727c",
+              "sourceStep": "/api/3/workflow_steps/70d2e8f4-a584-4463-bea9-7c68cb3fc7ed",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "434fa337-efd8-4cb7-8e33-eb0762460a81"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "9a32bd1d-a9ba-47cc-bbc1-77541ed9d638",
+          "recordTags": [
+            "RiskIQ",
+            "riskiq-passivetotal"
+          ],
+          "id": 4190,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1633080408,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1633083317,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Cookies",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the host attribute cookies related to the query",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1633081665,
+          "collection": "/api/3/workflow_collections/aafacbf2-618c-4de8-a55e-a14b399dea3c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/f31704cb-9083-4196-be6b-d4e29ba22c39",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Cookies",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ PassiveTotal",
+                "config": "0c3966f1-4a93-4d71-8133-b440df429641",
+                "params": {
+                  "end": "",
+                  "page": 0,
+                  "query": "passivetotal.org",
+                  "start": ""
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-passivetotal",
+                "operation": "get_cookies",
+                "operationTitle": "Get Cookies",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "160",
+              "left": "400",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "89aa5218-889b-4ff3-a9ba-82be695c9f79",
+              "id": 12373
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "4cd413fd-b813-4218-841c-b0878fcebdd7",
+                "title": "RiskIQ PassiveTotal: Get Cookies",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "f31704cb-9083-4196-be6b-d4e29ba22c39",
+              "id": 12372
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Cookies",
+              "targetStep": "/api/3/workflow_steps/89aa5218-889b-4ff3-a9ba-82be695c9f79",
+              "sourceStep": "/api/3/workflow_steps/f31704cb-9083-4196-be6b-d4e29ba22c39",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "32b70105-2549-476d-9dbd-04a71cb37844"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "a54705cf-cb73-4881-a065-e01b6011439a",
+          "recordTags": [
+            "RiskIQ",
+            "riskiq-passivetotal"
+          ],
+          "id": 4194,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1633081524,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1633083317,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Trackers",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the host attribute trackers",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1633082362,
+          "collection": "/api/3/workflow_collections/aafacbf2-618c-4de8-a55e-a14b399dea3c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/ada65852-e80e-4810-8422-5140e7b3b2a3",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Trackers",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ PassiveTotal",
+                "config": "0c3966f1-4a93-4d71-8133-b440df429641",
+                "params": {
+                  "end": "2021-10-01T09:59:07.381Z",
+                  "page": 0,
+                  "query": "passivetotal.org",
+                  "start": "2021-09-28T19:30:00.000Z"
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-passivetotal",
+                "operation": "get_trackers",
+                "operationTitle": "Get Trackers",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "107",
+              "left": "340",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "8f20ff6f-9575-4bf0-b70b-4e44cb73cf51",
+              "id": 12375
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "ae649fb4-7cff-44a9-86bc-465eb86a18ab",
+                "title": "RiskIQ PassiveTotal: Get Trackers",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "ada65852-e80e-4810-8422-5140e7b3b2a3",
+              "id": 12374
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Trackers",
+              "targetStep": "/api/3/workflow_steps/8f20ff6f-9575-4bf0-b70b-4e44cb73cf51",
+              "sourceStep": "/api/3/workflow_steps/ada65852-e80e-4810-8422-5140e7b3b2a3",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "509a663a-27f6-43e3-b402-6783f7613b9b"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "b8f41894-228e-40ff-9b39-b542712a39bd",
+          "recordTags": [
+            "RiskIQ",
+            "riskiq-passivetotal"
+          ],
+          "id": 4195,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1633082188,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1633083318,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Services",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieves the exposed services related to the input IP address.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1633081034,
+          "collection": "/api/3/workflow_collections/aafacbf2-618c-4de8-a55e-a14b399dea3c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/b1974b07-3e9b-471e-8c23-efbfc93e05c4",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Services",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ PassiveTotal",
+                "config": "0c3966f1-4a93-4d71-8133-b440df429641",
+                "params": {
+                  "query": "5.53.124.235"
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-passivetotal",
+                "operation": "get_services",
+                "operationTitle": "Get Services",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "135",
+              "left": "354",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "17d7ac74-525c-4618-b4b9-0ff6a2204dbf",
+              "id": 12369
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "38a24867-791e-439f-b330-9de2572914d1",
+                "title": "RiskIQ PassiveTotal: Get Services",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "b1974b07-3e9b-471e-8c23-efbfc93e05c4",
+              "id": 12368
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Services",
+              "targetStep": "/api/3/workflow_steps/17d7ac74-525c-4618-b4b9-0ff6a2204dbf",
+              "sourceStep": "/api/3/workflow_steps/b1974b07-3e9b-471e-8c23-efbfc93e05c4",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "f805904c-dc2e-440b-8cda-b741296bfddf"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "be0deecf-1d7c-40aa-9059-0c8279b8fd30",
+          "recordTags": [
+            "RiskIQ",
+            "riskiq-passivetotal"
+          ],
+          "id": 4192,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1633080834,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1633083317,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Enrichment Data",
+          "aliasName": null,
+          "tag": null,
+          "description": "Get enrichment data for a query",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1633080790,
+          "collection": "/api/3/workflow_collections/aafacbf2-618c-4de8-a55e-a14b399dea3c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/633ef1d6-9946-4a74-96f9-e609c597329f",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "84065cd4-0e31-47cc-b884-1b2493cd7b21",
+                "title": "RiskIQ PassiveTotal: Get Enrichment Data",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "633ef1d6-9946-4a74-96f9-e609c597329f",
+              "id": 12366
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Enrichment Data",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ PassiveTotal",
+                "config": "0c3966f1-4a93-4d71-8133-b440df429641",
+                "params": {
+                  "query": "passivetotal.org",
+                  "query_for": "Get Enrichment Data"
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-passivetotal",
+                "operation": "get_enrichment_data",
+                "operationTitle": "Get Enrichment Data",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "119",
+              "left": "354",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "cf59516d-1d23-4601-9ac0-dc41346fd6da",
+              "id": 12367
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Enrichment Data",
+              "targetStep": "/api/3/workflow_steps/cf59516d-1d23-4601-9ac0-dc41346fd6da",
+              "sourceStep": "/api/3/workflow_steps/633ef1d6-9946-4a74-96f9-e609c597329f",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "dafb5afc-1e47-431e-9068-67ca29253a40"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "c250044c-99f8-454c-beda-7af6c9871fc9",
+          "recordTags": [
+            "RiskIQ",
+            "riskiq-passivetotal"
+          ],
+          "id": 4191,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1633080570,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1633083318,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Components",
+          "aliasName": null,
+          "tag": null,
+          "description": "The action allow you to search components hosts and addresses information.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1633082686,
+          "collection": "/api/3/workflow_collections/aafacbf2-618c-4de8-a55e-a14b399dea3c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/5e3533a6-0cdc-4aa0-82c8-45470bcbf262",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "5094d70d-f501-4194-8acb-663c871834ec",
+                "title": "RiskIQ PassiveTotal: Get Components",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "5e3533a6-0cdc-4aa0-82c8-45470bcbf262",
+              "id": 12376
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Components",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ PassiveTotal",
+                "config": "0c3966f1-4a93-4d71-8133-b440df429641",
+                "params": {
+                  "name": "apache",
+                  "page": 0,
+                  "sort": "lastSeen",
+                  "order": "desc",
+                  "version": "",
+                  "category": "",
+                  "search_by": "Get addresses by component name"
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-passivetotal",
+                "operation": "get_components",
+                "operationTitle": "Get Components",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "179",
+              "left": "351",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "ae56afe0-d3f4-4a5b-9baf-ac5637baab16",
+              "id": 12377
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Components",
+              "targetStep": "/api/3/workflow_steps/ae56afe0-d3f4-4a5b-9baf-ac5637baab16",
+              "sourceStep": "/api/3/workflow_steps/5e3533a6-0cdc-4aa0-82c8-45470bcbf262",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "56e798b5-7f8e-4bfa-ab3d-ee9981984d23"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "d3ae4e49-66ea-4b99-bf77-7ded8c7b377d",
+          "recordTags": [
+            "RiskIQ",
+            "riskiq-passivetotal"
+          ],
+          "id": 4196,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1633082420,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1633083317,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Alerts",
+          "aliasName": null,
+          "tag": null,
+          "description": "Retrieve all alerts associated with an artifact or project.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1633081435,
+          "collection": "/api/3/workflow_collections/aafacbf2-618c-4de8-a55e-a14b399dea3c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/779a1d9e-495f-449b-8f16-126d4beb0050",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "bb36da60-926f-45f9-9cf1-39773632bd95",
+                "title": "RiskIQ PassiveTotal: Get Alerts",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "779a1d9e-495f-449b-8f16-126d4beb0050",
+              "id": 12370
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alerts",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ PassiveTotal",
+                "config": "0c3966f1-4a93-4d71-8133-b440df429641",
+                "params": {
+                  "end": "",
+                  "page": 0,
+                  "size": 25,
+                  "start": "",
+                  "project": "32e740ad-b839-4d7e-8830-0372b97c23d3",
+                  "artifact": ""
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-passivetotal",
+                "operation": "get_alerts",
+                "operationTitle": "Get Alerts",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "153",
+              "left": "336",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "b5b9c609-b633-4998-8f2f-cb164667c32d",
+              "id": 12371
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alerts",
+              "targetStep": "/api/3/workflow_steps/b5b9c609-b633-4998-8f2f-cb164667c32d",
+              "sourceStep": "/api/3/workflow_steps/779a1d9e-495f-449b-8f16-126d4beb0050",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "9246c73c-e863-42af-9775-d13849be88b3"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "d80f017a-0dc5-4bcf-b6a0-4866ee768711",
+          "recordTags": [
+            "RiskIQ",
+            "riskiq-passivetotal"
+          ],
+          "id": 4193,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1633081111,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1633083317,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Search Whois Data",
+          "aliasName": null,
+          "tag": null,
+          "description": "Search WHOIS data for a keyword.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1633080343,
+          "collection": "/api/3/workflow_collections/aafacbf2-618c-4de8-a55e-a14b399dea3c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d82a139f-7d7e-4842-926f-12147b930ce8",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Search Whois Data",
+              "description": null,
+              "arguments": {
+                "name": "RiskIQ PassiveTotal",
+                "config": "0c3966f1-4a93-4d71-8133-b440df429641",
+                "params": {
+                  "field": "Domain",
+                  "query": "passivetotal.org"
+                },
+                "version": "1.0.0",
+                "connector": "riskiq-passivetotal",
+                "operation": "search_whois_data",
+                "operationTitle": "Search Whois Data",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "194",
+              "left": "375",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "c1f36a72-ee12-41b0-bee6-329ddc945043",
+              "id": 12363
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "5a5ac1d1-e7f2-454a-b27b-294267c35ebc",
+                "title": "RiskIQ PassiveTotal: Search Whois Data",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "d82a139f-7d7e-4842-926f-12147b930ce8",
+              "id": 12362
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Search Whois Data",
+              "targetStep": "/api/3/workflow_steps/c1f36a72-ee12-41b0-bee6-329ddc945043",
+              "sourceStep": "/api/3/workflow_steps/d82a139f-7d7e-4842-926f-12147b930ce8",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "106ac3b3-c1b7-49b0-8148-4162aed4a185"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "f27c3206-abbd-4394-9723-4536917d69ea",
+          "recordTags": [
+            "RiskIQ",
+            "riskiq-passivetotal"
+          ],
+          "id": 4189,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1633079999,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1633083318,
+          "owners": [],
+          "isPrivate": false
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "RiskIQ",
+    "riskiq-passivetotal"
+  ]
+}

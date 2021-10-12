@@ -1,0 +1,852 @@
+{
+  "name": "riskiq-passivetotal",
+  "label": "RiskIQ PassiveTotal",
+  "version": "1.0.0",
+  "description": "RiskIQ PassiveTotal used to map threat actor infrastructure, profile hostnames & IP addresses, discover web technologies on Internet hosts. This connector provides actions for Get Reputation, Get Components, Get Trackers, Get Alerts, Get Enrichment Data, etc",
+  "publisher": "Community",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "category": "Threat Intelligence",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "url",
+        "description": "Server address of riskiq to which you will connect and perform operation",
+        "placeholder": "e.g. https://api.riskiq.net",
+        "value": "https://api.riskiq.net"
+      },
+      {
+        "title": "Username",
+        "tooltip": "Username of RiskIQ server",
+        "description": "Username of RiskIQ server",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "username"
+      },
+      {
+        "title": "API Key",
+        "tooltip": "Api key of RiskIQ server",
+        "description": "Api key of RiskIQ server to which you will connect and perform automated operation",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "api_key"
+      },
+      {
+        "title": "Verify SSL",
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_reputation",
+      "title": "Get Reputation",
+      "description": "Get reputation from a given domain, host or IP.",
+      "category": "investigation",
+      "annotation": "get_reputation",
+      "output_schema": {
+        "score": "",
+        "classification": "",
+        "rules": [
+          {
+            "name": "",
+            "description": "",
+            "severity": "",
+            "link": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Domain/Host/IP Address",
+          "tooltip": "Domain/Host/IP Address to get its reputation",
+          "description": "Domain/Host/IP Address to get its reputation",
+          "placeholder": "e.g passivetotal.org",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "query"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_components",
+      "title": "Get Components",
+      "description": "The action allow you to search components hosts and addresses information.",
+      "category": "investigation",
+      "annotation": "get_components",
+      "output_schema": {
+        "totalRecords": "",
+        "success": "",
+        "results": [
+          {
+            "firstSeen": "",
+            "lastSeen": "",
+            "version": "",
+            "category": "",
+            "label": "",
+            "address": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Get Data For",
+          "tooltip": "Get component information for host or address",
+          "description": "Get component information for host or address",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Get Addresses By Component Name",
+            "Get Hosts By Component Name"
+          ],
+          "value": "Get Addresses By Component Name",
+          "name": "search_by"
+        },
+        {
+          "title": "Name",
+          "tooltip": "Component name to get addresses",
+          "description": "Component name to get addresses",
+          "required": true,
+          "placeholder": "e.g. apache",
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name"
+        },
+        {
+          "title": "Version",
+          "tooltip": "component version to search for",
+          "description": "component version to search for",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "version"
+        },
+        {
+          "title": "Category",
+          "tooltip": "component category to search for",
+          "description": "component category to search for",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "category"
+        },
+        {
+          "title": "Page",
+          "tooltip": "page number for paging through results, defaults to 0",
+          "description": "page number for paging through results, defaults to 0",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": "0",
+          "type": "integer",
+          "name": "page"
+        },
+        {
+          "title": "Sort",
+          "tooltip": "Field to sort on. Allowed values: lastSeen, firstSeen. Default value: lastSeen",
+          "description": "Field to sort on. Allowed values: lastSeen, firstSeen. Default value: lastSeen",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "value": "lastSeen",
+          "placeholder": "e.g lastSeen",
+          "name": "sort"
+        },
+        {
+          "title": "Order",
+          "tooltip": "Order to return results in. Default value: desc",
+          "description": "Order to return results in. Default value: desc",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "value": "desc",
+          "placeholder": "e.g desc",
+          "name": "order"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_trackers",
+      "title": "Get Trackers",
+      "description": "Retrieves the host attribute trackers",
+      "category": "investigation",
+      "annotation": "get_trackers",
+      "output_schema": {
+        "success": "",
+        "results": [
+          {
+            "firstSeen": "",
+            "lastSeen": "",
+            "attributeValue": "",
+            "attributeType": "",
+            "hostname": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Query",
+          "tooltip": "The domain or IP being queried",
+          "description": "The domain or IP being queried",
+          "placeholder": "e.g passivetotal.org",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "query"
+        },
+        {
+          "title": "Start",
+          "tooltip": "The start datetime",
+          "description": "The start datetime",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "start"
+        },
+        {
+          "title": "End",
+          "tooltip": "The end datetime",
+          "description": "The end datetime",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "end"
+        },
+        {
+          "title": "Page",
+          "tooltip": "page number for paging through results, defaults to 0",
+          "description": "page number for paging through results, defaults to 0",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": "0",
+          "type": "integer",
+          "name": "page"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_cookies",
+      "title": "Get Cookies",
+      "description": "Retrieves the host attribute cookies related to the query",
+      "category": "investigation",
+      "annotation": "get_cookies",
+      "output_schema": {},
+      "parameters": [
+        {
+          "title": "Query",
+          "tooltip": "The domain or IP being queried",
+          "description": "The domain or IP being queried",
+          "placeholder": "e.g passivetotal.org",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "query"
+        },
+        {
+          "title": "Start",
+          "tooltip": "The start datetime",
+          "description": "The start datetime",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "start"
+        },
+        {
+          "title": "End",
+          "tooltip": "The end datetime",
+          "description": "The end datetime",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "end"
+        },
+        {
+          "title": "Page",
+          "tooltip": "page number for paging through results, defaults to 0",
+          "description": "page number for paging through results, defaults to 0",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": "0",
+          "type": "integer",
+          "name": "page"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_alerts",
+      "title": "Get Alerts",
+      "description": "Retrieve all alerts associated with an artifact or project.",
+      "category": "investigation",
+      "annotation": "get_alerts",
+      "output_schema": {
+        "totalRecords": "",
+        "success": "",
+        "results": {
+          "d49a9020-2c30-4269-98f2-2b90e0f912b1": [
+            {
+              "change": "",
+              "query": "",
+              "type": "",
+              "datetime": "",
+              "project": "",
+              "tags": [],
+              "projectGuid": "",
+              "result": ""
+            }
+          ]
+        },
+        "error": ""
+      },
+      "parameters": [
+        {
+          "title": "Project",
+          "tooltip": "The project to filter on",
+          "placeholder": "e.g. 32e740ad-b839-4d7e-8830-0372b97c23d3",
+          "description": "The project to filter on",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "project"
+        },
+        {
+          "title": "Artifact",
+          "tooltip": "The artifact to filter on",
+          "description": "The artifact to filter on",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "artifact"
+        },
+        {
+          "title": "Start",
+          "tooltip": "Filter results to after this datetime",
+          "description": "Filter results to after this datetime",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "start"
+        },
+        {
+          "title": "End",
+          "tooltip": "Filter results to before this datetime.",
+          "description": "Filter results to before this datetime.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "end"
+        },
+        {
+          "title": "Page",
+          "tooltip": "page number for paging through results, defaults to 0",
+          "description": "page number for paging through results, defaults to 0",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": "0",
+          "type": "integer",
+          "name": "page"
+        },
+        {
+          "title": "Size",
+          "tooltip": "Maximum number of results to return in response, default is 25",
+          "description": "Maximum number of results to return in response, default is 25",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": "25",
+          "type": "integer",
+          "name": "size"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_services",
+      "title": "Get Services",
+      "description": "Retrieves the exposed services related to the input IP address.",
+      "category": "investigation",
+      "annotation": "get_services",
+      "output_schema": {
+        "totalRecords": "",
+        "success": "",
+        "results": [
+          {
+            "portNumber": "",
+            "firstSeen": "",
+            "lastSeen": "",
+            "lastScan": "",
+            "count": "",
+            "status": "",
+            "protocol": "",
+            "banners": [
+              {
+                "banner": "",
+                "scanType": "",
+                "firstSeen": "",
+                "lastSeen": "",
+                "count": ""
+              }
+            ],
+            "currentServices": [
+              {
+                "firstSeen": "",
+                "lastSeen": "",
+                "version": "",
+                "category": "",
+                "label": ""
+              }
+            ],
+            "recentServices": [],
+            "mostRecentSslCert": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "IP Address",
+          "tooltip": "The IP Address being queried.",
+          "description": "The IP Address being queried.",
+          "placeholder": "e.g. 5.53.124.235",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "query"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_enrichment_data",
+      "title": "Get Enrichment Data",
+      "description": "Get enrichment data for a query.",
+      "category": "investigation",
+      "annotation": "get_enrichment_data",
+      "conditional_output_schema": [
+        {
+          "condition": "{{query_for === Get Enrichment Data}}",
+          "output_schema": {
+            "classification": "",
+            "sinkhole": "",
+            "everCompromised": "",
+            "queryType": "",
+            "queryValue": "",
+            "autonomousSystemNumber": "",
+            "autonomousSystemName": "",
+            "network": "",
+            "country": "",
+            "longitude": "",
+            "latitude": "",
+            "dynamic": "",
+            "tag_meta": {},
+            "global_tags": [],
+            "tags": [],
+            "system_tags": [
+            ]
+          }
+        },
+        {
+          "condition": "{{query_for === Get Malware Data}}",
+          "output_schema": {
+            "success": "",
+            "results": [
+              {
+                "collectionDate": "",
+                "sample": "",
+                "source": "",
+                "sourceUrl": ""
+              }
+            ]
+          }
+        },
+        {
+          "condition": "{{query_for === Get OSINT Data}}",
+          "output_schema": {
+            "success": "",
+            "results": [
+              {
+                "derived": "",
+                "inReport": [
+                ],
+                "source": "",
+                "sourceUrl": "",
+                "tags": [
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "condition": "{{query_for === Get SubDomains Data}}",
+          "output_schema": {
+            "success": "",
+            "primaryDomain": "",
+            "subdomains": [],
+            "queryValue": ""
+          }
+        },
+        {
+          "condition": "{{true}}",
+          "output_schema": {
+            "classification": "",
+            "sinkhole": "",
+            "everCompromised": "",
+            "queryType": "",
+            "queryValue": "",
+            "autonomousSystemNumber": "",
+            "autonomousSystemName": "",
+            "network": "",
+            "country": "",
+            "longitude": "",
+            "latitude": "",
+            "dynamic": "",
+            "tag_meta": {},
+            "global_tags": [],
+            "tags": [],
+            "system_tags": [
+            ]
+          }
+        }
+      ],
+      "parameters": [
+        {
+          "title": "Query",
+          "tooltip": "the domain or IP being queried",
+          "description": "the domain or IP being queried",
+          "placeholder": "e.g passivetotal.org",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "query"
+        },
+        {
+          "title": "Get Data For",
+          "tooltip": "Get Data for selected input option",
+          "description": "Get Data for selected input option. Available options are Get Enrichment Data, Get Malware Data, Get OSINT Data and Get SubDomains Data",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Get Enrichment Data",
+            "Get Malware Data",
+            "Get OSINT Data",
+            "Get SubDomains Data"
+          ],
+          "value": "Get Enrichment Data",
+          "name": "query_for"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_whois_data",
+      "title": "Get Whois Data",
+      "description": "Retrieves the WHOIS data for the specified query",
+      "category": "investigation",
+      "annotation": "get_whois_data",
+      "output_schema": {
+        "admin": {
+          "email": ""
+        },
+        "billing": {},
+        "registrant": {
+          "country": "",
+          "email": "",
+          "organization": "",
+          "state": ""
+        },
+        "tech": {
+          "email": ""
+        },
+        "zone": {},
+        "nameServers": [],
+        "contactEmail": "",
+        "domain": "",
+        "expiresAt": "",
+        "lastLoadedAt": "",
+        "registered": "",
+        "registrar": "",
+        "registryUpdatedAt": "",
+        "whoisServer": "",
+        "organization": "",
+        "name": "",
+        "telephone": "",
+        "domainStatus": "",
+        "compact": {
+          "country": {
+            "raw": [],
+            "values": []
+          },
+          "city": {
+            "raw": [],
+            "values": []
+          },
+          "street": {
+            "raw": [],
+            "values": []
+          },
+          "postalCode": {
+            "raw": [],
+            "values": []
+          },
+          "organization": {
+            "raw": [],
+            "values": []
+          },
+          "name": {
+            "raw": [],
+            "values": []
+          },
+          "telephone": {
+            "raw": [],
+            "values": []
+          },
+          "state": {
+            "raw": [],
+            "values": []
+          },
+          "fax": {
+            "raw": [],
+            "values": []
+          },
+          "email": {
+            "raw": [],
+            "values": []
+          }
+        },
+        "rawText": ""
+      },
+      "parameters": [
+        {
+          "title": "Query",
+          "tooltip": "The domain being queried",
+          "description": "The domain being queried",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "placeholder": "e.g passivetotal.org",
+          "name": "query"
+        },
+        {
+          "title": "Compact Record",
+          "tooltip": "Whether to compress the results",
+          "description": "Whether to compress the results",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "value": false,
+          "name": "compact_record"
+        },
+        {
+          "title": "History",
+          "tooltip": "Whether to return historical results",
+          "description": "Whether to return historical results",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "value": false,
+          "name": "history"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "search_whois_data",
+      "title": "Search Whois Data",
+      "description": "Search WHOIS data for a keyword.",
+      "category": "investigation",
+      "annotation": "search_whois_data",
+      "output_schema": [
+        {
+          "admin": {
+            "email": ""
+          },
+          "billing": {},
+          "registrant": {
+            "country": "",
+            "email": "",
+            "organization": "",
+            "state": ""
+          },
+          "tech": {
+            "email": ""
+          },
+          "zone": {},
+          "nameServers": [
+          ],
+          "contactEmail": "",
+          "domain": "",
+          "expiresAt": "",
+          "lastLoadedAt": "",
+          "registered": "",
+          "registrar": "",
+          "registryUpdatedAt": "",
+          "whoisServer": "",
+          "organization": "",
+          "name": "",
+          "telephone": "",
+          "domainStatus": ""
+        }
+      ],
+      "parameters": [
+        {
+          "title": "Query",
+          "tooltip": "The value of the field being queried",
+          "description": "The value of the field being queried",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "placeholder": "e.g passivetotal.org",
+          "name": "query"
+        },
+        {
+          "title": "Field",
+          "tooltip": "The field to query",
+          "description": "The field to query. Allowed values: email, domain, name, organization, address, phone, nameserver",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "Email",
+            "Domain",
+            "Name",
+            "Organization",
+            "Address",
+            "Phone",
+            "Name Server"
+          ],
+          "value": "Domain",
+          "name": "field"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "operation": "get_passive_dns",
+      "title": "Get Passive DNS",
+      "description": "Retrieves the passive DNS results from active account sources.",
+      "category": "investigation",
+      "annotation": "get_passive_dns",
+      "output_schema": {
+        "pager": "",
+        "queryValue": "",
+        "queryType": "",
+        "firstSeen": "",
+        "lastSeen": "",
+        "totalRecords": "",
+        "results": [
+          {
+            "firstSeen": "",
+            "lastSeen": "",
+            "source": [
+            ],
+            "value": "",
+            "collected": "",
+            "recordType": "",
+            "resolve": "",
+            "resolveType": "",
+            "recordHash": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "title": "Query",
+          "tooltip": "The domain or IP being queried",
+          "description": "The domain or IP being queried",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "placeholder": "e.g passivetotal.org",
+          "name": "query"
+        },
+        {
+          "title": "Start",
+          "tooltip": "The start datetime",
+          "description": "The start datetime",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "start"
+        },
+        {
+          "title": "End",
+          "tooltip": "The end datetime",
+          "description": "The end datetime",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "end"
+        },
+        {
+          "title": "Timeout",
+          "tooltip": "Timeout to use for external resources, Defaults to 7",
+          "description": "Timeout to use for external resources, Defaults to 7",
+          "value": "7",
+          "placeholder": "e.g. 7",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "timeout"
+        }
+      ],
+      "enabled": true
+    }
+  ]
+}
+
