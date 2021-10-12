@@ -200,10 +200,10 @@ def _check_health(config):
 
 
 operations = {
-    'get_reputation': get_reputation, #not included in license level
+    'get_reputation': get_reputation,
     'get_components': get_components,
-    'get_trackers': get_trackers,  #search is disabled for account level
-    'get_cookies': get_cookies,    #search is disabled for account level
+    'get_trackers': get_trackers,
+    'get_cookies': get_cookies,  
     'get_alerts': get_alerts,
     'get_services': get_services,
     'get_enrichment_data': get_enrichment_data,
