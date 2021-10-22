@@ -1,10 +1,8 @@
-"""
-   Copyright start
+""" Copyright start
   Copyright (C) 2008 - 2021 Fortinet Inc.
   All rights reserved.
   FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
-  Copyright end
-"""
+  Copyright end """
 
 import datetime
 import requests
@@ -33,7 +31,7 @@ def get_str_input(params, key):
 
 
 def get_config_params(config, endpoint):
-    url = config.get('url')
+    url = config.get('url').strip('/')
     if not url.startswith('https://') and not url.startswith('http://'):
         url = ('https://{}'.format(url)).strip('/')
     username = config.get('username')
@@ -57,7 +55,7 @@ def make_api_call(config, method, endpoint, param):
             response = requests.post(url, auth=auth, headers=payload, data=param, verify=verify_ssl)
         if response.ok:
             logger.info('successfully got response from url= {0}, status code is= {1}'.format(url, response.status_code))
-            if 'json' in str(response.headers):
+            if 'json' in str(response.headers.get('Content-Type')):
                 return response.json()
             else:
                 return response.content
@@ -203,7 +201,7 @@ operations = {
     'get_reputation': get_reputation,
     'get_components': get_components,
     'get_trackers': get_trackers,
-    'get_cookies': get_cookies,  
+    'get_cookies': get_cookies,
     'get_alerts': get_alerts,
     'get_services': get_services,
     'get_enrichment_data': get_enrichment_data,

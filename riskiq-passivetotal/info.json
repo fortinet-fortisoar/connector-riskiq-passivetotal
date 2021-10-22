@@ -9,7 +9,7 @@
   "category": "Threat Intelligence",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/riskiq-passivetotal/178/riskiq-passivetotal-v1-0-0",
   "configuration": {
     "fields": [
       {
@@ -19,14 +19,14 @@
         "visible": true,
         "type": "text",
         "name": "url",
-        "description": "Server address of riskiq to which you will connect and perform operation",
+        "description": "Server URL of RiskIQ PassiveTotal to which you will connect and perform automated operations.",
         "placeholder": "e.g. https://api.riskiq.net",
         "value": "https://api.riskiq.net"
       },
       {
         "title": "Username",
         "tooltip": "Username of RiskIQ server",
-        "description": "Username of RiskIQ server",
+        "description": "Username configured for your account to access the RiskIQ PassiveTotal server.",
         "required": true,
         "editable": true,
         "visible": true,
@@ -36,7 +36,7 @@
       {
         "title": "API Key",
         "tooltip": "Api key of RiskIQ server",
-        "description": "Api key of RiskIQ server to which you will connect and perform automated operation",
+        "description": "API key configured for your account to access the RiskIQ PassiveTotal server.",
         "required": true,
         "editable": true,
         "visible": true,
@@ -46,7 +46,7 @@
       {
         "title": "Verify SSL",
         "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not",
-        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
         "required": false,
         "editable": true,
         "visible": true,
@@ -60,7 +60,7 @@
     {
       "operation": "get_reputation",
       "title": "Get Reputation",
-      "description": "Get reputation from a given domain, host or IP.",
+      "description": "Retrieves thereputation for the specified domain, host, or IP fromRiskIQ PassiveTotal.",
       "category": "investigation",
       "annotation": "get_reputation",
       "output_schema": {
@@ -79,7 +79,7 @@
         {
           "title": "Domain/Host/IP Address",
           "tooltip": "Domain/Host/IP Address to get its reputation",
-          "description": "Domain/Host/IP Address to get its reputation",
+          "description": "The domain, host, or IP whose reputation you want to retrieve fromRiskIQ PassiveTotal.",
           "placeholder": "e.g passivetotal.org",
           "required": true,
           "editable": true,
@@ -93,7 +93,7 @@
     {
       "operation": "get_components",
       "title": "Get Components",
-      "description": "The action allow you to search components hosts and addresses information.",
+      "description": "Searches and retrieves information for hosts or addresses of components inRiskIQ PassiveTotal based on the component's hosts or addresses, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_components",
       "output_schema": {
@@ -114,7 +114,7 @@
         {
           "title": "Get Data For",
           "tooltip": "Get component information for host or address",
-          "description": "Get component information for host or address",
+          "description": "The type of component information (hosts or addresses) that you want to retrieve from RiskIQ PassiveTotal. You can choose betweenGet Addresses By Component NameorGet Hosts By Component Name.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -129,7 +129,7 @@
         {
           "title": "Name",
           "tooltip": "Component name to get addresses",
-          "description": "Component name to get addresses",
+          "description": "The name of the component whose hosts or addresses information you want to retrieve from RiskIQ PassiveTotal.",
           "required": true,
           "placeholder": "e.g. apache",
           "editable": true,
@@ -140,7 +140,7 @@
         {
           "title": "Version",
           "tooltip": "component version to search for",
-          "description": "component version to search for",
+          "description": "(Optional) The version of the component whosehosts or addresses information you want to retrieve from RiskIQ PassiveTotal.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -150,7 +150,7 @@
         {
           "title": "Category",
           "tooltip": "component category to search for",
-          "description": "component category to search for",
+          "description": "(Optional) The category of the component whosehosts or addresses information you want to retrieve from RiskIQ PassiveTotal.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -160,7 +160,7 @@
         {
           "title": "Page",
           "tooltip": "page number for paging through results, defaults to 0",
-          "description": "page number for paging through results, defaults to 0",
+          "description": "(Optional) The number of record requests that should be included per page. By default, this is set to 0 i.e., no paging.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -171,7 +171,7 @@
         {
           "title": "Sort",
           "tooltip": "Field to sort on. Allowed values: lastSeen, firstSeen. Default value: lastSeen",
-          "description": "Field to sort on. Allowed values: lastSeen, firstSeen. Default value: lastSeen",
+          "description": "(Optional) The name of the fields by which you want to sort the results retrieved by this operation. You can specify the following values:lastSeen(default),firstSeen.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -183,7 +183,7 @@
         {
           "title": "Order",
           "tooltip": "Order to return results in. Default value: desc",
-          "description": "Order to return results in. Default value: desc",
+          "description": "(Optional) The order to sort the results returnedretrieved by this operation. You can specify the following values:desc(default),asc.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -198,7 +198,7 @@
     {
       "operation": "get_trackers",
       "title": "Get Trackers",
-      "description": "Retrieves the host attribute trackers",
+      "description": "Retrieves the host attribute trackers fromRiskIQ PassiveTotal based on the queried domain or IP, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_trackers",
       "output_schema": {
@@ -217,7 +217,7 @@
         {
           "title": "Query",
           "tooltip": "The domain or IP being queried",
-          "description": "The domain or IP being queried",
+          "description": "The domain or IP that you want to query to retrieve the host attribute trackers fromRiskIQ PassiveTotal.",
           "placeholder": "e.g passivetotal.org",
           "required": true,
           "editable": true,
@@ -228,7 +228,7 @@
         {
           "title": "Start",
           "tooltip": "The start datetime",
-          "description": "The start datetime",
+          "description": "(Optional) The start DateTime from when you want to retrieve the host attribute trackers fromRiskIQ PassiveTotal.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -238,7 +238,7 @@
         {
           "title": "End",
           "tooltip": "The end datetime",
-          "description": "The end datetime",
+          "description": "(Optional) The end DateTime till when you want to retrieve the host attribute trackers fromRiskIQ PassiveTotal.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -248,7 +248,7 @@
         {
           "title": "Page",
           "tooltip": "page number for paging through results, defaults to 0",
-          "description": "page number for paging through results, defaults to 0",
+          "description": "(Optional) The number of record requests that should be included per page. By default, this is set to 0 i.e., no paging.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -262,7 +262,7 @@
     {
       "operation": "get_cookies",
       "title": "Get Cookies",
-      "description": "Retrieves the host attribute cookies related to the query",
+      "description": "Retrieves the host attribute cookies fromRiskIQ PassiveTotal based on the queried domain or IP, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_cookies",
       "output_schema": {},
@@ -270,7 +270,7 @@
         {
           "title": "Query",
           "tooltip": "The domain or IP being queried",
-          "description": "The domain or IP being queried",
+          "description": "The domain or IP that you want to query to retrieve the host attribute cookies fromRiskIQ PassiveTotal.",
           "placeholder": "e.g passivetotal.org",
           "required": true,
           "editable": true,
@@ -281,7 +281,7 @@
         {
           "title": "Start",
           "tooltip": "The start datetime",
-          "description": "The start datetime",
+          "description": "(Optional) The start DateTime from when you want to retrieve the host attribute cookies fromRiskIQ PassiveTotal.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -291,7 +291,7 @@
         {
           "title": "End",
           "tooltip": "The end datetime",
-          "description": "The end datetime",
+          "description": "(Optional) The end DateTime till when you want to retrieve the host attribute cookies fromRiskIQ PassiveTotal.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -301,7 +301,7 @@
         {
           "title": "Page",
           "tooltip": "page number for paging through results, defaults to 0",
-          "description": "page number for paging through results, defaults to 0",
+          "description": "(Optional) The number of record requests that should be included per page. By default, this is set to 0 i.e., no paging.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -315,7 +315,7 @@
     {
       "operation": "get_alerts",
       "title": "Get Alerts",
-      "description": "Retrieve all alerts associated with an artifact or project.",
+      "description": "Retrieve all alerts associated with an artifact or projectfromRiskIQ PassiveTotal based on the project or artifact, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_alerts",
       "output_schema": {
@@ -342,7 +342,7 @@
           "title": "Project",
           "tooltip": "The project to filter on",
           "placeholder": "e.g. 32e740ad-b839-4d7e-8830-0372b97c23d3",
-          "description": "The project to filter on",
+          "description": "The project whose associated alerts you want to retrieve fromRiskIQ PassiveTotal.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -352,7 +352,7 @@
         {
           "title": "Artifact",
           "tooltip": "The artifact to filter on",
-          "description": "The artifact to filter on",
+          "description": "The artifact whose associated alerts you want to retrieve fromRiskIQ PassiveTotal.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -362,7 +362,7 @@
         {
           "title": "Start",
           "tooltip": "Filter results to after this datetime",
-          "description": "Filter results to after this datetime",
+          "description": "(Optional) The start DateTime from when you want to retrieve alerts associated with the specified project or artifact fromRiskIQ PassiveTotal.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -372,7 +372,7 @@
         {
           "title": "End",
           "tooltip": "Filter results to before this datetime.",
-          "description": "Filter results to before this datetime.",
+          "description": "(Optional) The start DateTime till when you want to retrieve alerts associated with the specified project or artifact fromRiskIQ PassiveTotal.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -382,7 +382,7 @@
         {
           "title": "Page",
           "tooltip": "page number for paging through results, defaults to 0",
-          "description": "page number for paging through results, defaults to 0",
+          "description": "(Optional) The number of record requests that should be included per page. By default, this is set to 0 i.e., no paging.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -393,7 +393,7 @@
         {
           "title": "Size",
           "tooltip": "Maximum number of results to return in response, default is 25",
-          "description": "Maximum number of results to return in response, default is 25",
+          "description": "(Optional) The maximum number of results that this operation should return. By default, this is set to 25.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -407,7 +407,7 @@
     {
       "operation": "get_services",
       "title": "Get Services",
-      "description": "Retrieves the exposed services related to the input IP address.",
+      "description": "Retrieves the exposed services related to the specified IP addressfromRiskIQ PassiveTotal.",
       "category": "investigation",
       "annotation": "get_services",
       "output_schema": {
@@ -449,7 +449,7 @@
         {
           "title": "IP Address",
           "tooltip": "The IP Address being queried.",
-          "description": "The IP Address being queried.",
+          "description": "The IP address whose exposed services you want to retrieve fromRiskIQ PassiveTotal.",
           "placeholder": "e.g. 5.53.124.235",
           "required": true,
           "editable": true,
@@ -463,7 +463,7 @@
     {
       "operation": "get_enrichment_data",
       "title": "Get Enrichment Data",
-      "description": "Get enrichment data for a query.",
+      "description": "Retrieves enrichment data from RiskIQ PassiveTotal based on the queried domain or IP and the type of data you have specified.",
       "category": "investigation",
       "annotation": "get_enrichment_data",
       "conditional_output_schema": [
@@ -485,8 +485,7 @@
             "tag_meta": {},
             "global_tags": [],
             "tags": [],
-            "system_tags": [
-            ]
+            "system_tags": []
           }
         },
         {
@@ -510,12 +509,10 @@
             "results": [
               {
                 "derived": "",
-                "inReport": [
-                ],
+                "inReport": [],
                 "source": "",
                 "sourceUrl": "",
-                "tags": [
-                ]
+                "tags": []
               }
             ]
           }
@@ -547,8 +544,7 @@
             "tag_meta": {},
             "global_tags": [],
             "tags": [],
-            "system_tags": [
-            ]
+            "system_tags": []
           }
         }
       ],
@@ -556,7 +552,7 @@
         {
           "title": "Query",
           "tooltip": "the domain or IP being queried",
-          "description": "the domain or IP being queried",
+          "description": "The domain or IP that you want to query to retrieve the enrichment data fromRiskIQ PassiveTotal.",
           "placeholder": "e.g passivetotal.org",
           "required": true,
           "editable": true,
@@ -567,7 +563,7 @@
         {
           "title": "Get Data For",
           "tooltip": "Get Data for selected input option",
-          "description": "Get Data for selected input option. Available options are Get Enrichment Data, Get Malware Data, Get OSINT Data and Get SubDomains Data",
+          "description": "Choose the data type for which you want to retrieve enrichment data fromRiskIQ PassiveTotal. You can choose from the following options:Get Enrichment Data,Get Malware Data,Get OSINT Data, andGet SubDomains Data.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -587,7 +583,7 @@
     {
       "operation": "get_whois_data",
       "title": "Get Whois Data",
-      "description": "Retrieves the WHOIS data for the specified query",
+      "description": "Retrieves the Whois data from RiskIQ PassiveTotal based on the queried domain you have specified.",
       "category": "investigation",
       "annotation": "get_whois_data",
       "output_schema": {
@@ -666,7 +662,7 @@
         {
           "title": "Query",
           "tooltip": "The domain being queried",
-          "description": "The domain being queried",
+          "description": "The domain or IP that you want to query to retrieve the Whois data fromRiskIQ PassiveTotal.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -677,7 +673,7 @@
         {
           "title": "Compact Record",
           "tooltip": "Whether to compress the results",
-          "description": "Whether to compress the results",
+          "description": "Select this checkbox to compress the resultsthat are returned by this operation.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -688,7 +684,7 @@
         {
           "title": "History",
           "tooltip": "Whether to return historical results",
-          "description": "Whether to return historical results",
+          "description": "Select this checkbox to include historical information in the resultsthat are returned by this operation.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -702,7 +698,7 @@
     {
       "operation": "search_whois_data",
       "title": "Search Whois Data",
-      "description": "Search WHOIS data for a keyword.",
+      "description": "Searches for Whois data in RiskIQ PassiveTotal based on the keyword you have specified.",
       "category": "investigation",
       "annotation": "search_whois_data",
       "output_schema": [
@@ -721,8 +717,7 @@
             "email": ""
           },
           "zone": {},
-          "nameServers": [
-          ],
+          "nameServers": [],
           "contactEmail": "",
           "domain": "",
           "expiresAt": "",
@@ -741,7 +736,7 @@
         {
           "title": "Query",
           "tooltip": "The value of the field being queried",
-          "description": "The value of the field being queried",
+          "description": "The value of the field that you want to query to retrieve the Whois data fromRiskIQ PassiveTotal.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -752,7 +747,7 @@
         {
           "title": "Field",
           "tooltip": "The field to query",
-          "description": "The field to query. Allowed values: email, domain, name, organization, address, phone, nameserver",
+          "description": "The field that you want to query to retrieve the Whois data fromRiskIQ PassiveTotal. You can choose from the following options:Email,Domain,Name,Organization,Address,Phone, orNameserver.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -775,7 +770,7 @@
     {
       "operation": "get_passive_dns",
       "title": "Get Passive DNS",
-      "description": "Retrieves the passive DNS results from active account sources.",
+      "description": "Retrieves the passive DNS results from active account sourcesin RiskIQ PassiveTotal based on the queried domain or IP, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "get_passive_dns",
       "output_schema": {
@@ -789,8 +784,7 @@
           {
             "firstSeen": "",
             "lastSeen": "",
-            "source": [
-            ],
+            "source": [],
             "value": "",
             "collected": "",
             "recordType": "",
@@ -804,7 +798,7 @@
         {
           "title": "Query",
           "tooltip": "The domain or IP being queried",
-          "description": "The domain or IP being queried",
+          "description": "The domain or IP that you want to query to retrieve the passive DNS results from active account sources in RiskIQ PassiveTotal.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -815,7 +809,7 @@
         {
           "title": "Start",
           "tooltip": "The start datetime",
-          "description": "The start datetime",
+          "description": "(Optional) The start DateTime from when you want to retrieve the passive DNS results from active account sources in RiskIQ PassiveTotal.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -825,7 +819,7 @@
         {
           "title": "End",
           "tooltip": "The end datetime",
-          "description": "The end datetime",
+          "description": "(Optional) The end DateTime till when you want to retrieve the passive DNS results from active account sources in RiskIQ PassiveTotal.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -835,7 +829,7 @@
         {
           "title": "Timeout",
           "tooltip": "Timeout to use for external resources, Defaults to 7",
-          "description": "Timeout to use for external resources, Defaults to 7",
+          "description": "The timeout value that you want to set for external resources.By default, this is set to 7.",
           "value": "7",
           "placeholder": "e.g. 7",
           "required": false,
@@ -849,4 +843,3 @@
     }
   ]
 }
-
